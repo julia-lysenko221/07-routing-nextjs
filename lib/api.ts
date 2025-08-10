@@ -16,16 +16,17 @@ const instance = axios.create({
 });
 
 export const fetchNotes = async (
-  page = 1,
-  perPage = 12,
-  search = '',
+  page: number,
+  perPage: number,
+  search: string,
+  tag: string | undefined,
 ): Promise<FetchNotesResponse> => {
-  const params = { page, perPage, search };
-
-  //   const params: Record<string, string | number> = { page, perPage };
-  //   if (search.trim() !== '') {
-  //     params.search = search.trim();
-  //   }
+  const params = {
+    page,
+    perPage,
+    search,
+    tag,
+  };
 
   const res = await instance.get<FetchNotesResponse>('/notes', {
     params,
