@@ -33,32 +33,6 @@ export const fetchNotes = async (
   return res.data;
 };
 
-// const instance = axios.create({
-//   baseURL: 'https://notehub-public.goit.study/api',
-//   headers: {
-//     Authorization: `Bearer ${token}`,
-//   },
-// });
-
-// export const fetchNotes = async (
-//   page: number,
-//   perPage: number,
-//   search: string,
-//   tag: string | undefined,
-// ): Promise<FetchNotesResponse> => {
-//   const params = {
-//     page,
-//     perPage,
-//     search,
-//     tag,
-//   };
-
-//   const res = await instance.get<FetchNotesResponse>('/notes', {
-//     params,
-//   });
-//   return res.data;
-// };
-
 export const createNote = async (newNote: NewNoteData): Promise<Note> => {
   const res = await instance.post<Note>('/notes', newNote);
   return res.data;

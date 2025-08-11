@@ -9,7 +9,7 @@ import Modal from '@/components/Modal/Modal';
 
 import css from './NotePreview.module.css';
 
-const NotePrewiewClient = () => {
+const NotePreviewClient = () => {
   const { id } = useParams<{ id: string }>();
   const router = useRouter();
 
@@ -24,10 +24,7 @@ const NotePrewiewClient = () => {
   });
 
   const handleGoBack = () => {
-    const isSure = confirm('Are you sure?');
-    if (isSure) {
-      router.back();
-    }
+    router.back();
   };
 
   if (isLoading) return <p>Loading...</p>;
@@ -43,6 +40,7 @@ const NotePrewiewClient = () => {
             <h2>{note.title}</h2>
           </div>
           <p className={css.content}>{note.content}</p>
+          <p className={css.content}>{note.tag}</p>
           <p className={css.date}>{note.createdAt}</p>
         </div>
       </div>
@@ -50,4 +48,4 @@ const NotePrewiewClient = () => {
   );
 };
 
-export default NotePrewiewClient;
+export default NotePreviewClient;
